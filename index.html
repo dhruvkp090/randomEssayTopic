@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Random Essay Topic</title>
+</head>
+<body>
+
+    <div class="jumbotron text-center" style="position: relative;">
+        <h1 id="heading" align="center"></h1>
+    </div>
+    <div class="container">
+        <div class="row" style="position: relative;">
+            <div class="col-sm-1 col-md-1 col-lg-1"></div>
+            <div class="col-sm-10 col-md-10 col-lg-10">
+                <div class="card" style="width:100%; text-align: center;">
+                    <div class="card-body">
+                        <p id = "First"></p>
+                        <p id = "Second"></p>
+                        <em><p id = "Third"></p></em>
+                        <hr>
+                      <a href="#" class="btn btn-primary" onclick="issueEssay()">Issue Essay</a>
+                      <a href="#" class="btn btn-primary" onclick="argumentEssay()">Argument Essay</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-1 col-md-1 col-lg-1"><br></div>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="issue.json"></script>
+    <script>
+        var essayType = 0;
+        function issueEssay(){
+            fetch('./issue.json').then(response => {
+                return response.json();
+            }).then(data => {
+                // Work with JSON data here
+                //console.log(data);
+                var index = Math.floor(Math.random() * data.length);
+                console.log(index);
+                document.getElementById("heading").innerHTML = "Issue Essay" ;
+                document.getElementById("First").innerHTML = data[index][0];
+                document.getElementById("Second").innerHTML = data[index][1];
+                document.getElementById("Third").innerHTML = data[index][2];
+            }).catch(err => {
+                // Do something for an error here
+            });
+        }
+        function argumentEssay(){
+            fetch('./argument.json').then(response => {
+                return response.json();
+            }).then(data => {
+                // Work with JSON data here
+                //console.log(data);
+                var index = Math.floor(Math.random() * data.length);
+                console.log(index);
+                document.getElementById("heading").innerHTML = "Argument Essay" ;
+                document.getElementById("First").innerHTML = data[index][0];
+                document.getElementById("Second").innerHTML = data[index][1];
+                document.getElementById("Third").innerHTML = data[index][2];
+            }).catch(err => {
+                // Do something for an error here
+            });
+        }
+
+
+
+    </script>
+</body>
+</html>
