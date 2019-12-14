@@ -43,7 +43,7 @@
     <script>
         var essayType = 0;
         function issueEssay(){
-            fetch('./issue.json').then(response => {
+            fetch('essay/issue.json').then(response => {
                 return response.json();
             }).then(data => {
                 // Work with JSON data here
@@ -59,7 +59,7 @@
             });
         }
         function argumentEssay(){
-            fetch('./argument.json').then(response => {
+            fetch('essay/argument.json').then(response => {
                 return response.json();
             }).then(data => {
                 // Work with JSON data here
