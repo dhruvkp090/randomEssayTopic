@@ -41,7 +41,7 @@
     <footer class="page-footer font-small">
 
         <div class="footer-copyright text-center ">
-            Made with <i class="fa fa-heart"></i> by Dhruv Kumar Patwari |
+            Made by Dhruv Kumar Patwari |
             <a href="https://www.linkedin.com/in/dhruvkumarpatwari/" target="blank"><i class="fa fa-linkedin "></i></a> |
               <a href="https://www.facebook.com/dhruv.patwari.9" target="blank"><i class="fa fa-facebook "></i></a> |
               <a href="https://www.instagram.com/dhruv_patwari/?hl=en" target="blank"><i class="fa fa-instagram "></i></a> |
@@ -55,6 +55,7 @@
 
     <script type="text/javascript" src="issue.json"></script>
     <script>
+        var count = 0;
         var essayType = 0;
         function issueEssay(){
             fetch('essay/issue.json').then(response => {
@@ -68,6 +69,8 @@
                 document.getElementById("First").innerHTML = data[index][0];
                 document.getElementById("Second").innerHTML = data[index][1];
                 document.getElementById("Third").innerHTML = data[index][2];
+                count = count+1;
+                console.log(count);
             }).catch(err => {
                 // Do something for an error here
             });
@@ -84,6 +87,8 @@
                 document.getElementById("First").innerHTML = data[index][0];
                 document.getElementById("Second").innerHTML = data[index][1];
                 document.getElementById("Third").innerHTML = data[index][2];
+                count = count+1;
+                console.log(count);
             }).catch(err => {
                 // Do something for an error here
             });
